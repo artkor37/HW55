@@ -30,4 +30,18 @@ public class CarRepositoryImpl implements CarRepository {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(car);
     }
+
+    @Override
+    @Transactional
+    public void delete(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        Car car = session.get(Car.class, id);
+        session.delete(car);
+    }
+
+    @Override
+    public Car findById(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Car.class, id);
+    }
 }
