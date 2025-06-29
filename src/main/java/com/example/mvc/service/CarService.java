@@ -9,4 +9,8 @@ public interface CarService {
     List<CarDto> findAll();
 
     void save(SaveCarDto saveCarDto);
+
+    void delete(Integer id);
+
+    SaveCarDto getById(Integer id);
 }
